@@ -50,11 +50,13 @@ class NeuralNetwork(nn.Module):
     def forward(self, input_images):
         # convert the tensor into an array as mentioned previously
         input_images = input_images.view(-1, 28**2)
-        # use the ReLu function to pass the images through the layers of the neural network
+        # pass the images through the layers
+        # use ReLU to make sure that only meaningful output gets passed to next neuron
         input_images = self.rectifier(self.Matrix1(input_images))
         input_images = self.rectifier(self.Matrix2(input_images))
         input_images = self.Matrix3(input_images)
         # return the predictions of the Neural Network
+        # use squeeze to remove unnecessary dimensions from the tensor
         return input_images.squeeze()
 
 def train_model(data_loader, neural_network, num_epochs):
@@ -72,9 +74,13 @@ def train_model(data_loader, neural_network, num_epochs):
         print(f'Epoch {epoch+1}') # +1 to not start at the normal index of 0
         for i, (images, labels) in enumerate(train_dataloader):
             # update the weights of the neural network
+            # reset the stored gradients of the model to avoid errors
             optimizer.zero_grad()
+            # calculate the loss
             loss_value = loss(neural_network(images), labels)
+            # use backpropagation to find the gradients of the weights
             loss_value.backward()
+            # adjust the weights in the direction of least loss
             optimizer.step()
             # store the training data
             epochs.append(epoch+1/len(train_dataloader))
@@ -88,9 +94,11 @@ def test_model():
     # get the predicted class of the neural network
     test_label_predictions = neural_network(test_images).argmax(axis=1)
 
+    # define the figure and 2D array of subplots
     figure, axis = plt.subplots(4, 10, figsize=(22.5, 15))
+
     for i in range(40):
-        # make a new subplot
+        # navigate to a specific subplot
         plt.subplot(4, 10, i+1)
         # show the image for that subplot
         plt.imshow(test_images[i])
