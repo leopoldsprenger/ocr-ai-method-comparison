@@ -60,6 +60,7 @@ class NeuralNetwork(nn.Module):
         return input_images.squeeze()
 
 def train_model(data_loader, neural_network, num_epochs):
+    print("Training model...")
     # optimize the model using SGD
     optimizer = SGD(neural_network.parameters(), lr=0.01)
     # define the loss function
@@ -71,7 +72,7 @@ def train_model(data_loader, neural_network, num_epochs):
     epochs = []
     # iterate through each epoch
     for epoch in range(num_epochs):
-        print(f'Epoch {epoch+1}') # +1 to not start at the normal index of 0
+        print(f'Training: Epoch {epoch+1}/{num_epochs}') # +1 to not start at the normal index of 0
         for i, (images, labels) in enumerate(train_dataloader):
             # update the weights of the neural network
             # reset the stored gradients of the model to avoid errors
@@ -88,7 +89,8 @@ def train_model(data_loader, neural_network, num_epochs):
     # return the epochs and losses, converted to numpy arrays to better work with them
     return np.array(epochs), np.array(losses)
 
-def test_model():
+def test_model(neural_network):
+    print("Testing model...")
     # splice of the first 2000 entries in the test dataset
     test_images, test_labels = test_dataset[0:2000]
     # get the predicted class of the neural network
@@ -129,7 +131,7 @@ def plot_data(data_x, data_y):
     plt.ylabel('Cross Entropy (averaged per epoch)')
     plt.title('Cross Entropy (averaged per epoch)')
 
-def main():
+def train_model_from_scratch():
     # train the model and return the epoch data and loss data
     epoch_data, loss_data = train_model(train_dataloader, neural_network, num_epochs)
     # calculate the average of the epoch and loss for better visualization
@@ -137,7 +139,41 @@ def main():
     # plot the data for visualization
     plot_data(epoch_data_average, loss_data_average)
     # evaluate the model on images the model hasn't seen using the test dataset
-    test_model()
+    test_model(neural_network)
+    # save the currently trained model's weights
+    # note that this will overwrite any existing file saved under the same path
+    save_model(neural_network, model_weights_path)
+
+def save_model(model, save_path):
+    # save the models weights to the save_path
+    torch.save(model.state_dict(), save_path)
+    print(f"saved model to path: {save_path}")
+
+def load_model(load_path):
+    print("Loading model...")
+    # create a new instance of the neural network
+    model = NeuralNetwork()
+    # load the saved state dictionary into the model
+    model.load_state_dict(torch.load(load_path, weights_only=True))
+    # Set the model to evaluation mode
+    model.eval()
+    # return the model
+    return model
+
+def main():
+    # give the user a choice if he wants to train a new model or test / showcase an existing one
+    mode = input('Train and test model from scratch: 0\nLoad and test existing model: 1\nWhich mode would you like to do: ')
+    if mode == '0':
+        train_model_from_scratch()
+    elif mode == '1':
+        # load an existing model's weights'
+        neural_network = load_model(model_weights_path)
+        # test the existing model
+        test_model(neural_network)
+    else:
+        # have a fail safe for when the user types something else
+        print("Input wasn't accepted. Please try again.")
+        main()
 
 # load the dataset that the model will use to train with
 train_dataset = MNISTDataset('MNIST_dataset/processed/training.pt')
@@ -150,6 +186,8 @@ train_dataloader = DataLoader(train_dataset, batch_size=5)
 test_dataset = MNISTDataset('MNIST_dataset/processed/test.pt')
 # initialize the neural network
 neural_network = NeuralNetwork()
+# define a path to save and load the model to and from
+model_weights_path = 'saved_models/gradient_descent.pt'
 # set the number of epochs that the model will be trained for
 num_epochs = 20
 
