@@ -2,34 +2,11 @@
 import torch
 import torch.nn as nn
 from torch.optim import SGD
-import torch.nn.functional as F
-from torch.utils.data import Dataset, DataLoader
 import torchvision
 import numpy as np
 import matplotlib.pyplot as plt
 
-class MNISTDataset(Dataset):
-    def __init__(self, filepath):
-        # Data downloaded from www.di.ens.fr/~lelarge/MNIST.tar.gz
-        # Load the images and labels from the preprocessed data
-        self.images, self.labels = torch.load(filepath, weights_only=True)
-        # turn the data from a torch tensor to an array of 784 values that can be worked with more easily
-        # -1 means to keep the first property: 6000 images if you look at images.shape
-        # and since the images are 28 x 28 in length, we have a list of 28**2 values (one per pixel)
-        self.images.view(-1, 28**2)
-        # divide each value of the tensor by 255 so we get a value 0-1
-        self.images = self.images / 255
-        # use the one hot encoding method to encode each label into a floating point vector
-        self.labels = F.one_hot(self.labels, num_classes=10).to(float)
-
-    # return the amount of images by returning the first value of x where x is ([6000, 784])
-    # the function names have to be with two underscore before and after
-    # this is so we can call len(dataset) and dataset[index] and not have to call the function of the class
-    def __len__(self):
-        return self.images.shape[0]
-
-    def __getitem__(self, image_index):
-        return self.images[image_index], self.labels[image_index]
+import data_manager
 
 class NeuralNetwork(nn.Module):
     def __init__(self):
@@ -92,7 +69,7 @@ def train_model(data_loader, neural_network, num_epochs):
 def test_model(neural_network):
     print("Testing model...")
     # splice of the first 2000 entries in the test dataset
-    test_images, test_labels = test_dataset[0:2000]
+    test_images, test_labels = data_manager.test_dataset[0:2000]
     # get the predicted class of the neural network
     test_label_predictions = neural_network(test_images).argmax(axis=1)
 
@@ -125,11 +102,12 @@ def average_epoch_and_loss_data(epoch_data, loss_data):
 def plot_data(data_x, data_y):
     plt.figure(1)
     # plot the data as a graph of markers connected by dashed lines
-    plt.plot(data_x, data_y, 'o--')
+    plt.plot(data_x, data_y, 'o--', color='blue', label='average cross entropy loss per epoch')
     # set the labels and title of the graph
     plt.xlabel('Epoch Number')
     plt.ylabel('Cross Entropy (averaged per epoch)')
     plt.title('Cross Entropy (averaged per epoch)')
+    plt.legend()
 
 def train_model_from_scratch():
     # train the model and return the epoch data and loss data
@@ -142,23 +120,7 @@ def train_model_from_scratch():
     test_model(neural_network)
     # save the currently trained model's weights
     # note that this will overwrite any existing file saved under the same path
-    save_model(neural_network, model_weights_path)
-
-def save_model(model, save_path):
-    # save the models weights to the save_path
-    torch.save(model.state_dict(), save_path)
-    print(f"saved model to path: {save_path}")
-
-def load_model(load_path):
-    print("Loading model...")
-    # create a new instance of the neural network
-    model = NeuralNetwork()
-    # load the saved state dictionary into the model
-    model.load_state_dict(torch.load(load_path, weights_only=True))
-    # Set the model to evaluation mode
-    model.eval()
-    # return the model
-    return model
+    data_manager.save_model(neural_network, f"{data_manager.model_weights_path}/gradient_descent.pt")
 
 def main():
     # give the user a choice if he wants to train a new model or test / showcase an existing one
@@ -167,7 +129,7 @@ def main():
         train_model_from_scratch()
     elif mode == '1':
         # load an existing model's weights'
-        neural_network = load_model(model_weights_path)
+        neural_network = data_manager.load_model(f"{data_manager.model_weights_path}/gradient_descent.pt", NeuralNetwork())
         # test the existing model
         test_model(neural_network)
     else:
@@ -175,19 +137,14 @@ def main():
         print("Input wasn't accepted. Please try again.")
         main()
 
-# load the dataset that the model will use to train with
-train_dataset = MNISTDataset('MNIST_dataset/processed/training.pt')
+# number of images per batch
+batch_size = 5
 # load the dataset into the dataloader with a batch size of 5
 # the dataloader will give 1200 batches of 5 images every time (6000 images / 5 images per batch)
 # this is important for training, as you can easily iterate through the dataloader
-train_dataloader = DataLoader(train_dataset, batch_size=5)
-# load the dataset that the model will be tested on
-# note that this is data the model hasn't seen during training, to test generalization
-test_dataset = MNISTDataset('MNIST_dataset/processed/test.pt')
+train_dataloader = data_manager.DataLoader(data_manager.train_dataset, batch_size=batch_size)
 # initialize the neural network
 neural_network = NeuralNetwork()
-# define a path to save and load the model to and from
-model_weights_path = 'saved_models/gradient_descent.pt'
 # set the number of epochs that the model will be trained for
 num_epochs = 20
 
