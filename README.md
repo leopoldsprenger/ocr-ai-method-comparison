@@ -8,7 +8,7 @@ Die beiden verglichenen KI-Methoden sind:
 
 Dieses Projekt untersucht, wie jede Methode bei der Erkennung von handgeschriebenen Ziffern aus dem MNIST-Datensatz abschneidet und vergleicht dabei den Trainingsfortschritt, die Genauigkeit und die Leistung.
 
-Der MNIST-Datensatz für dieses Projekt wurde www.di.ens.fr/~lelarge/MNIST.tar.gz entnommen.
+Der MNIST-Datensatz für dieses Projekt wurde aus dieser Quelle entnommen: www.di.ens.fr/~lelarge/MNIST.tar.gz
 
 ---
 
