@@ -234,6 +234,11 @@ def main():
     mode = input('Train and test model with genetic algorithm: 0\nLoad and test existing model: 1\nWhich mode would you like to do: ')
     # if the user picked to train a model from scratch
     if mode == '0':
+        try:
+            num_generations = int(input('How many generations should the model train for: '))
+        except:
+            print('Number was not valid. Please try again...')
+            main()
         print("Training model...")
         # execute the genetic_algorithm and return the best_model and a list of best and average accuracies
         best_model, best_accuracies, average_accuracies = genetic_algorithm(
@@ -261,8 +266,8 @@ def main():
 # define the number of images per batch for the dataloader
 # the dataloader will take a batch of x images from the dataset every time to train the model
 batch_size = 64
-# define for how many generations the model will be trained for
-num_generations = 50
+# Set num of generations to 1, as it will be changed later
+num_generations = 0
 # define how many individuals or neural networks will be in any one generation
 population_size = 50
 num_parents = 25
