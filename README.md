@@ -114,8 +114,6 @@ test_model(neural_network)
 
 Füge hier Bilder und Diagramme hinzu, die während des Trainingsprozesses generiert wurden. Diese visuellen Hilfsmittel tragen dazu bei, ein besseres Verständnis der Ergebnisse zu vermitteln.
 
-Finaler Vergleich beider Genauigkeiten
+Finaler Vergleich beider Genauigkeiten:
 
-```markdown
 ![Trainingsverlust](result_images/accuracy_comparison_gradient_descent_and_genetic_algorithm.png)
-```
