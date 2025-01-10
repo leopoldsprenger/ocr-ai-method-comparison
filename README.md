@@ -67,7 +67,7 @@ Es gibt zwei Hauptmethoden, um das Modell zu trainieren:
    Die Funktion `train_model_from_scratch()` in `gradient_descent.py` wird verwendet, um das Modell von Grund auf neu zu trainieren. Sie nutzt den Trainingsdatensatz, um das Modell zu optimieren und verfolgt den Verlust und die Genauigkeit während der Epochen.
 
 2. **Mit genetischem Algorithmus (`genetic_algorithm.py`)**:
-   Die Funktion `train_model_using_genetic_algorithm()` in `genetic_algorithm.py` verwendet einen genetischen Algorithmus, um die besten Hyperparameter für das Modell zu finden. Dieser Ansatz nutzt Selektion, Kreuzung und Mutation, um Modelle zu entwickeln, die die besten Ergebnisse auf dem Testdatensatz liefern.
+   Die Funktion `genetic_algorithm()` in `genetic_algorithm.py` verwendet einen genetischen Algorithmus, um ein KI-Modell für OCR-Anwendungen zu trainieren. Dieser Ansatz nutzt Selektion, Kreuzung und Mutation, um Modelle zu entwickeln, die die besten Ergebnisse auf dem Testdatensatz liefern.
 
 Du kannst das Training starten, indem du das entsprechende Skript ausführst und den gewünschten Modus wählst:
 
@@ -114,8 +114,8 @@ test_model(neural_network)
 
 Füge hier Bilder und Diagramme hinzu, die während des Trainingsprozesses generiert wurden. Diese visuellen Hilfsmittel tragen dazu bei, ein besseres Verständnis der Ergebnisse zu vermitteln.
 
-Beispiel eines Diagramms:
+Finaler Vergleich beider Genauigkeiten
 
 ```markdown
-![Trainingsverlust](images/training_loss.png)
+![Trainingsverlust](result_images/accuracy_comparison_gradient_descent_and_genetic_algorithm.png)
 ```
