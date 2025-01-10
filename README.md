@@ -61,12 +61,18 @@ Diese Datei übernimmt das Laden und Verarbeiten des MNIST-Datensatzes. Sie defi
 
 ## Modell trainieren
 
-Die Funktion `train_model_from_scratch()` in `gradient_descent.py` wird verwendet, um das Modell von Grund auf neu zu trainieren. Sie nutzt den Trainingsdatensatz, um das Modell zu optimieren, und verfolgt den Verlust und die Genauigkeit während der Epochen.
+Es gibt zwei Hauptmethoden, um das Modell zu trainieren:
 
-Du kannst das Training starten, indem du das Skript ausführst und den entsprechenden Modus wählst:
+1. **Mit Gradientenabstieg (`gradient_descent.py`)**:
+   Die Funktion `train_model_from_scratch()` in `gradient_descent.py` wird verwendet, um das Modell von Grund auf neu zu trainieren. Sie nutzt den Trainingsdatensatz, um das Modell zu optimieren und verfolgt den Verlust und die Genauigkeit während der Epochen.
 
-1. **Modell von Grund auf neu trainieren**: Trainiert ein neues Modell mit den MNIST-Trainingsdaten und speichert die trainierten Gewichte.
-2. **Vorhandenes Modell laden und testen**: Lädt vortrainierte Gewichte und testet das Modell auf dem Testdatensatz.
+2. **Mit genetischem Algorithmus (`genetic_algorithm.py`)**:
+   Die Funktion `train_model_using_genetic_algorithm()` in `genetic_algorithm.py` verwendet einen genetischen Algorithmus, um die besten Hyperparameter für das Modell zu finden. Dieser Ansatz nutzt Selektion, Kreuzung und Mutation, um Modelle zu entwickeln, die die besten Ergebnisse auf dem Testdatensatz liefern.
+
+Du kannst das Training starten, indem du das entsprechende Skript ausführst und den gewünschten Modus wählst:
+
+- **Modell mit Gradientenabstieg trainieren**: 
+   Trainiert ein neues Modell mit den MNIST-Trainingsdaten und speichert die trainierten Gewichte.  
 
 Führe das Skript wie folgt aus:
 
