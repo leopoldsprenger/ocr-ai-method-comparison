@@ -16,8 +16,10 @@ Dieses Projekt untersucht, wie jede Methode bei der Erkennung von handgeschriebe
 3. [Code-Struktur](#code-struktur)
 4. [Modell trainieren](#modell-trainieren)
 5. [Modell testen](#modell-testen)
-6. [Ergebnisse und Vergleich](#ergebnisse-und-vergleich)
-7. [Fazit](#fazit)
+6. [Bilder und Diagramme](#bilder-und-diagramme)
+7. [Ergebnisse und Vergleich](#ergebnisse-und-vergleich)
+8. [Finaler Vergleich beider Genauigkeiten](#finaler-vergleich-beider-genauigkeiten)
+9. [Fazit](#fazit)
 
 ---
 
@@ -90,12 +92,20 @@ Nach dem Training wird das Modell mit dem Testdatensatz getestet. Die Funktion `
 
 Die visuelle Ausgabe zeigt die vorhergesagten Ziffern zusammen mit den Eingabebildern, sodass du prüfen kannst, wie gut das Modell abschneidet.
 
+## Bilder und Diagramme
+
+Füge hier Bilder und Diagramme hinzu, die während des Trainingsprozesses generiert wurden. Diese visuellen Hilfsmittel tragen dazu bei, ein besseres Verständnis der Ergebnisse zu vermitteln.
+
 ## Ergebnisse und Vergleich
 
 Die Leistung beider Modelle (genetischer Algorithmus und Gradientenabstieg) wird anhand der folgenden Metriken verglichen:
 
 - **Trainingsverlust / Fehlerrate**: Ein Diagramm des Verlustes über die Epochen für jede Methode.
 - **Testgenauigkeit**: Die Genauigkeit auf dem Testdatensatz.
+
+## Finaler Vergleich beider Genauigkeiten
+
+![Trainingsverlust](result_images/accuracy_comparison_gradient_descent_and_genetic_algorithm.png)
 
 ## Fazit
 
@@ -109,11 +119,3 @@ Nachdem du das Modell trainiert oder ein vortrainiertes Modell geladen hast, kan
 neural_network = load_model("model_weights/gradient_descent.pt", NeuralNetwork())
 test_model(neural_network)
 ```
-
-### Bilder und Diagramme
-
-Füge hier Bilder und Diagramme hinzu, die während des Trainingsprozesses generiert wurden. Diese visuellen Hilfsmittel tragen dazu bei, ein besseres Verständnis der Ergebnisse zu vermitteln.
-
-Finaler Vergleich beider Genauigkeiten:
-
-![Trainingsverlust](result_images/accuracy_comparison_gradient_descent_and_genetic_algorithm.png)
