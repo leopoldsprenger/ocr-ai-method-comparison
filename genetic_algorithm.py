@@ -234,19 +234,24 @@ def main():
     mode = input('Train and test model with genetic algorithm: 0\nLoad and test existing model: 1\nWhich mode would you like to do: ')
     # if the user picked to train a model from scratch
     if mode == '0':
-        print("Training model...")
-        # execute the genetic_algorithm and return the best_model and a list of best and average accuracies
-        best_model, best_accuracies, average_accuracies = genetic_algorithm(
-            train_dataloader, test_dataloader,
-            NeuralNetwork(), num_generations, population_size, num_parents, mutation_rate, mutation_strength
-        )
-        # plot the best and average accuracies for visualization
-        print("Plotting best and average accuracies...")
-        plot_accuracies_data(best_accuracies, average_accuracies)
-        # test the best model from the last generation of training
-        test_model(best_model)
-        # save the best model
-        data_manager.save_model(best_model, f"{data_manager.model_weights_path}/genetic_algorithm.pt")
+        try:
+            num_generations = int(input('How many generations should the model train for: '))
+            print("Training model...")
+            # execute the genetic_algorithm only if num_generations is valid
+            best_model, best_accuracies, average_accuracies = genetic_algorithm(
+                train_dataloader, test_dataloader,
+                NeuralNetwork, num_generations, population_size, num_parents, mutation_rate, mutation_strength
+            )
+            # plot the best and average accuracies for visualization
+            print("Plotting best and average accuracies...")
+            plot_accuracies_data(best_accuracies, average_accuracies)
+            # test the best model from the last generation of training
+            test_model(best_model)
+            # save the best model
+            data_manager.save_model(best_model, f"{data_manager.model_weights_path}/genetic_algorithm.pt")
+        except ValueError:
+            print('Generation number was not valid. Please try again...')
+            main()
     # if the user picked to showcase an existing model
     elif mode == '1':
         # load a neural network using the load_model function from the data_manager
@@ -262,7 +267,7 @@ def main():
 # the dataloader will take a batch of x images from the dataset every time to train the model
 batch_size = 64
 # define for how many generations the model will be trained for
-num_generations = 50
+num_generations = 1
 # define how many individuals or neural networks will be in any one generation
 population_size = 50
 num_parents = 25
