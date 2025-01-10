@@ -39,6 +39,18 @@ Dieses Skript enthält den Code zum Trainieren eines neuronalen Netzwerks mit Gr
 
 - **Trainingsvisualisierung**: Plottet den Verlust über die Epochen, um den Fortschritt des Modells zu verfolgen.
 
+### `genetic_algorithm.py`
+
+Dieses Skript enthält den Code zur Implementierung des genetischen Algorithmus zur Optimierung des Modells. Es umfasst:
+
+- **Genetischer Algorithmus**: Eine Implementierung eines genetischen Algorithmus, der die Modellparameter durch Selektion, Kreuzung und Mutation anpasst.
+
+- **Fitnessfunktion**: Eine Funktion zur Berechnung der Fitness des Modells basierend auf der Genauigkeit des Testdatensatzes.
+
+- **Trainingsschleife**: Der genetische Algorithmus wird in einer Schleife ausgeführt, wobei die besten Modelle für die nächste Generation ausgewählt werden.
+
+- **Ergebnisse**: Das Skript speichert und visualisiert die besten Modelle während der Evolution.
+
 ### `data_manager.py`
 
 Diese Datei übernimmt das Laden und Verarbeiten des MNIST-Datensatzes. Sie definiert die folgenden Hauptkomponenten:
@@ -61,6 +73,10 @@ Führe das Skript wie folgt aus:
 ```bash
 python gradient_descent.py
 ```
+oder
+```bash
+python genetic_algorithm.py
+```
 
 ## Modell testen
 
@@ -72,7 +88,7 @@ Die visuelle Ausgabe zeigt die vorhergesagten Ziffern zusammen mit den Eingabebi
 
 Die Leistung beider Modelle (genetischer Algorithmus und Gradientenabstieg) wird anhand der folgenden Metriken verglichen:
 
-- **Trainingsverlust**: Ein Diagramm des Verlustes über die Epochen für jede Methode.
+- **Trainingsverlust / Fehlerrate**: Ein Diagramm des Verlustes über die Epochen für jede Methode.
 - **Testgenauigkeit**: Die Genauigkeit auf dem Testdatensatz.
 
 ## Fazit
