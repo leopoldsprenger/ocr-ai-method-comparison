@@ -1,124 +1,117 @@
+Here's a rewritten version of the README in German for your repository **ocr-ai-method-comparison**:
+
+---
+
 # OCR AI Methodenvergleich
 
-Dieses Repository enthält den Code, der verwendet wurde, um zwei verschiedene Methoden der künstlichen Intelligenz (KI) für die optische Zeichenerkennung (OCR) zu vergleichen. Der Vergleich war Teil meiner wissenschaftlichen Arbeit für die 9. Klasse.
+Willkommen im **OCR AI Methodenvergleich** Repository, erstellt von [leopoldsprenger](https://github.com/leopoldsprenger). Dieses Projekt vergleicht zwei verschiedene Methoden der künstlichen Intelligenz für die optische Zeichenerkennung (OCR) im Rahmen eines wissenschaftlichen Projekts der 9. Klasse. Ziel ist es, zu bewerten, wie diese Methoden handschriftliche Ziffern aus dem MNIST-Datensatz erkennen.
 
-Die beiden verglichenen KI-Methoden sind:
-1. **Genetische Algorithmus-basierte KI**: Ein Modell, das mithilfe genetischer Algorithmen optimiert wird.
-2. **Gradientenabstieg-basierte KI**: Ein traditionelles neuronales Netzwerk, das mit dem Gradientenabstiegs-Optimierer trainiert wird.
+## Projektübersicht
 
-Dieses Projekt untersucht, wie jede Methode bei der Erkennung von handgeschriebenen Ziffern aus dem MNIST-Datensatz abschneidet und vergleicht dabei den Trainingsfortschritt, die Genauigkeit und die Leistung.
+Dieses Repository implementiert und vergleicht zwei KI-Ansätze für OCR:
 
-Der MNIST-Datensatz für dieses Projekt wurde aus dieser Quelle entnommen: www.di.ens.fr/~lelarge/MNIST.tar.gz
+1. **Genetisch Algorithmus-basierte KI**: Ein Modell, das mit genetischen Algorithmen optimiert wurde.
+2. **Gradientenabstieg-basierte KI**: Ein traditionelles neuronales Netzwerk, das mit dem Gradientenabstieg-Optimierer trainiert wurde.
 
----
-
-## Inhaltsverzeichnis
-1. [Überblick](#überblick)
-2. [Setup und Installation](#setup-und-installation)
-3. [Code-Struktur](#code-struktur)
-4. [Modell trainieren](#modell-trainieren)
-5. [Modell testen](#modell-testen)
-6. [Bilder und Diagramme](#bilder-und-diagramme)
-7. [Ergebnisse und Vergleich](#ergebnisse-und-vergleich)
-8. [Finaler Vergleich beider Genauigkeiten](#finaler-vergleich-beider-genauigkeiten)
-9. [Fazit](#fazit)
-10. [Beispielcode zum Laden von Modells](#beispielcode-zum-laden-von-modells)
+### [Installation](#installation)
+### [Verwendung](#verwendung)
+### [Erklärung der Neural Network Klasse](#neural-network-klasse-erklärung)
+### [Lizenz](#lizenz)
 
 ---
 
-## Überblick
+## Installation
 
-Dieses Projekt zielt darauf ab, zwei verschiedene KI-Trainingsmethoden für OCR-Aufgaben zu vergleichen. Der Vergleich konzentriert sich auf den Trainingsprozess, die Genauigkeit und die Generalisierungsfähigkeit auf dem MNIST-Datensatz, der aus Bildern handgeschriebener Ziffern (0–9) besteht.
-
-## Code-Struktur
-
-### `gradient_descent.py`
-
-Dieses Skript enthält den Code zum Trainieren eines neuronalen Netzwerks mit Gradientenabstieg. Es umfasst die folgenden Hauptkomponenten:
-
-- **Neuronen-Netzwerk-Architektur**: Das Netzwerk besteht aus drei voll verbundenen Schichten mit ReLU-Aktivierung zwischen den Schichten.
-
-- **Trainingsschleife**: Implementiert den Trainingsprozess mit dem Stochastischen Gradientenabstieg (SGD) Optimierer und der Kreuzentropie-Verlustfunktion.
-
-- **Testfunktion**: Bewertet das Modell auf dem Testdatensatz und visualisiert die Vorhersagen.
-
-- **Trainingsvisualisierung**: Plottet den Verlust über die Epochen, um den Fortschritt des Modells zu verfolgen.
-
-### `genetic_algorithm.py`
-
-Dieses Skript enthält den Code zur Implementierung des genetischen Algorithmus zur Optimierung des Modells. Es umfasst:
-
-- **Genetischer Algorithmus**: Eine Implementierung eines genetischen Algorithmus, der die Modellparameter durch Selektion, Kreuzung und Mutation anpasst.
-
-- **Fitnessfunktion**: Eine Funktion zur Berechnung der Fitness des Modells basierend auf der Genauigkeit des Testdatensatzes.
-
-- **Trainingsschleife**: Der genetische Algorithmus wird in einer Schleife ausgeführt, wobei die besten Modelle für die nächste Generation ausgewählt werden.
-
-- **Ergebnisse**: Das Skript speichert und visualisiert die besten Modelle während der Evolution.
-
-### `data_manager.py`
-
-Diese Datei übernimmt das Laden und Verarbeiten des MNIST-Datensatzes. Sie definiert die folgenden Hauptkomponenten:
-
-- **DataLoader**: Eine benutzerdefinierte DataLoader-Klasse, die Batches von Trainingsdaten lädt.
-
-- **Modell speichern und laden**: Funktionen zum Speichern und Laden der Modellgewichte.
-
-## Modell trainieren
-
-Es gibt zwei Hauptmethoden, um das Modell zu trainieren:
-
-1. **Mit Gradientenabstieg (`gradient_descent.py`)**:
-   Die Funktion `train_model_from_scratch()` in `gradient_descent.py` wird verwendet, um das Modell von Grund auf neu zu trainieren. Sie nutzt den Trainingsdatensatz, um das Modell zu optimieren und verfolgt den Verlust und die Genauigkeit während der Epochen.
-
-2. **Mit genetischem Algorithmus (`genetic_algorithm.py`)**:
-   Die Funktion `genetic_algorithm()` in `genetic_algorithm.py` verwendet einen genetischen Algorithmus, um ein KI-Modell für OCR-Anwendungen zu trainieren. Dieser Ansatz nutzt Selektion, Kreuzung und Mutation, um Modelle zu entwickeln, die die besten Ergebnisse auf dem Testdatensatz liefern.
-
-Du kannst das Training starten, indem du das entsprechende Skript ausführst und den gewünschten Modus wählst:
-
-- **Modell mit Gradientenabstieg trainieren**: 
-   Trainiert ein neues Modell mit den MNIST-Trainingsdaten und speichert die trainierten Gewichte.  
-
-Führe das Skript wie folgt aus:
+Um mit diesem Projekt zu beginnen, klonen Sie zunächst das Repository:
 
 ```bash
-python gradient_descent.py
+git clone https://github.com/leopoldsprenger/ocr-ai-method-comparison.git
+cd ocr-ai-method-comparison
 ```
-oder
+
+### Voraussetzungen
+
+Stellen Sie sicher, dass Sie **Python 3.12.6** installiert haben. Installieren Sie die erforderlichen Abhängigkeiten mit pip:
+
 ```bash
-python genetic_algorithm.py
+pip install -r requirements.txt
 ```
 
-## Modell testen
+*Hinweis: Wenn Sie keine `requirements.txt`-Datei haben, stellen Sie bitte sicher, dass Sie PyTorch und andere Abhängigkeiten manuell installieren.*
 
-Nach dem Training wird das Modell mit dem Testdatensatz getestet. Die Funktion `test_model()` bewertet die Leistung und visualisiert die Vorhersagen für die ersten 40 Testbilder.
+---
 
-Die visuelle Ausgabe zeigt die vorhergesagten Ziffern zusammen mit den Eingabebildern, sodass du prüfen kannst, wie gut das Modell abschneidet.
+## Verwendung
 
-## Bilder und Diagramme
+### Training von Modellen
 
-Füge hier Bilder und Diagramme hinzu, die während des Trainingsprozesses generiert wurden. Diese visuellen Hilfsmittel tragen dazu bei, ein besseres Verständnis der Ergebnisse zu vermitteln.
+Sie können entweder KI-Modell mit den folgenden Skripten trainieren:
 
-## Ergebnisse und Vergleich
+- Um die **genetisch Algorithmus-basierte KI** zu trainieren, führen Sie aus:
+  ```bash
+  python genetic_algorithm.py
+  ```
 
-Die Leistung beider Modelle (genetischer Algorithmus und Gradientenabstieg) wird anhand der folgenden Metriken verglichen:
+- Um die **Gradientenabstieg-basierte KI** zu trainieren, führen Sie aus:
+  ```bash
+  python gradient_descent.py
+  ```
 
-- **Trainingsverlust / Fehlerrate**: Ein Diagramm des Verlustes über die Epochen für jede Methode.
-- **Testgenauigkeit**: Die Genauigkeit auf dem Testdatensatz.
+### Evaluation
 
-## Finaler Vergleich beider Genauigkeiten
+Nach dem Training möchten Sie möglicherweise die Leistung der Modelle bewerten. Hier sind die Schritte:
 
-![Trainingsverlust](result_images/accuracy_comparison_gradient_descent_and_genetic_algorithm.png)
+- Zur Evaluierung des **genetisch Algorithmus-basierten Modells**, überprüfen Sie die Ergebnisse in `result_images/genetic_algorithm/`, insbesondere die Dateien:
+  - ![Vor Implementierung des besten Kreuzungsalgorithmus](result_images/genetic_algorithm/test_1_before_implementing_best_crossover.png)
+  - ![Nach implementierung des besten Kreuzungsalgorithmus](result_images/genetic_algorithm/test_2_after_implementing_best_crossover.png)
 
-## Fazit
+- Zur Evaluierung des **Gradientenabstieg-basierten Modells** finden Sie die Ergebnisse in `result_images/gradient_descent/`, die visuelle Darstellungen wie enthalten:
+  - ![Kreuzentropie pro Epoche](result_images/gradient_descent/cross_entropy_per_epochs_graph.png)
+  - ![Vorhersagen des Testdatensatzes](result_images/gradient_descent/gradient_descent_test_dataset_predictions.png)
 
-Dieser Vergleich gibt Aufschluss über die Effektivität der verschiedenen KI-Trainingsmethoden für OCR-Aufgaben. Die endgültige Modellleistung wird helfen, zu bestimmen, welche Methode bessere Ergebnisse bei der Erkennung handgeschriebener Ziffern liefert.
+### Visuelle Ergebnisse
 
-## Beispielcode zum Laden und Testen des Modells
+Hier sind einige Bilder, die Sie überprüfen können, um die Genauigkeit beider Ansätze zu vergleichen:
+![Genauigkeitsvergleich](result_images/accuracy_comparison_gradient_descent_and_genetic_algorithm.png)
 
-Nachdem du das Modell trainiert oder ein vortrainiertes Modell geladen hast, kannst du es mit folgendem Beispiel testen:
+---
+
+## Erklärung der Neural Network Klasse
+
+Die **NeuronalNetwork** Klasse ist ein entscheidendes Element beider KI-Modelle. Unten befindet sich eine vereinfachte Darstellung der Klassendefinition:
 
 ```python
-neural_network = load_model("model_weights/gradient_descent.pt", NeuralNetwork())
-test_model(neural_network)
+import torch
+import torch.nn as nn
+
+class NeuralNetwork(nn.Module):
+    def __init__(self):
+        super(NeuralNetwork, self).__init__()
+        self.fc1 = nn.Linear(784, 128)  # Eingabeschicht zu versteckter Schicht
+        self.fc2 = nn.Linear(128, 64)   # Versteckte Schicht zu einer anderen versteckten Schicht
+        self.fc3 = nn.Linear(64, 10)    # Versteckte Schicht zu Ausgabeschicht
+
+    def forward(self, x):
+        x = torch.relu(self.fc1(x))  # ReLU Aktivierungsfunktion anwenden
+        x = torch.relu(self.fc2(x))  # ReLU Aktivierungsfunktion anwenden
+        x = self.fc3(x)               # Ausgabeschicht
+        return x
 ```
+
+### Erklärung der Klassendefinition
+
+- **Eingabeschicht**: Akzeptiert Bilder in der Größe von 28x28 Pixeln, die in einen Vektor mit 784 Eingängen umgewandelt werden.
+- **Versteckte Schichten**: Enthält typischerweise eine oder mehrere versteckte Schichten mit ReLU-Aktivierungsfunktionen, um Nichtlinearität einzuführen.
+- **Ausgabeschicht**: Gibt Wahrscheinlichkeiten für jede der zehn Ziffernklassen (0-9) aus.
+
+Diese Klasse definiert, wie Daten durch das Netzwerk fließen, während des Trainings Gewichte aktualisiert werden und während der Bewertung Vorhersagen getroffen werden.
+
+---
+
+## Lizenz
+
+Dieses Projekt ist unter der [MIT-Lizenz](https://opensource.org/licenses/MIT) lizenziert, die die Wiederverwendung des Codes mit angemessener Attribution erlaubt.
+
+---
+
+Wenn Sie weitere Modifikationen oder Fragen haben, zögern Sie nicht, sich zu melden!
