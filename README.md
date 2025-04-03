@@ -9,6 +9,7 @@ Dieses Repository implementiert und vergleicht zwei KI-Ansätze für OCR:
 - **Genetisch Algorithmus-basierte KI**: Ein Modell, das mit genetischen Algorithmen optimiert wurde.
 - **Gradientenabstieg-basierte KI**: Ein traditionelles neuronales Netzwerk, das mit dem Gradientenabstieg-Optimierer trainiert wurde.
 
+### Inhaltsverzeichnis
 1. [Installation](#installation)
 2. [Verwendung](#verwendung)
 3. [Erklärung der Neural Network Klasse](#neural-network-klasse-erklärung)
