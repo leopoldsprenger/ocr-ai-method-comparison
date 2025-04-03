@@ -1,7 +1,3 @@
-Here's a rewritten version of the README in German for your repository **ocr-ai-method-comparison**:
-
----
-
 # OCR AI Methodenvergleich
 
 Willkommen im **OCR AI Methodenvergleich** Repository, erstellt von [leopoldsprenger](https://github.com/leopoldsprenger). Dieses Projekt vergleicht zwei verschiedene Methoden der künstlichen Intelligenz für die optische Zeichenerkennung (OCR) im Rahmen eines wissenschaftlichen Projekts der 9. Klasse. Ziel ist es, zu bewerten, wie diese Methoden handschriftliche Ziffern aus dem MNIST-Datensatz erkennen.
