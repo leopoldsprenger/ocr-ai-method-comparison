@@ -117,7 +117,3 @@ Diese Klasse definiert, wie Daten durch das Netzwerk fließen, während des Trai
 ## Lizenz
 
 Dieses Projekt ist unter der [MIT-Lizenz](https://opensource.org/licenses/MIT) lizenziert, die die Wiederverwendung des Codes mit angemessener Attribution erlaubt.
-
----
-
-Wenn Sie weitere Modifikationen oder Fragen haben, zögern Sie nicht, sich zu melden!
