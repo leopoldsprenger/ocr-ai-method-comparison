@@ -59,17 +59,20 @@ Sie können entweder KI-Modell mit den folgenden Skripten trainieren:
 Nach dem Training möchten Sie möglicherweise die Leistung der Modelle bewerten. Hier sind die Schritte:
 
 Zur Evaluierung des **genetisch Algorithmus-basierten Modells**, überprüfen Sie die Ergebnisse in `result_images/genetic_algorithm/`, insbesondere die Dateien:
-<img src="result_images/genetic_algorithm/test_1_before_implementing_best_crossover.png" alt="Vor Implementierung des besten Kreuzungsalgorithmus" width="200"/>
-<img src="result_images/genetic_algorithm/test_2_after_implementing_best_crossover.png" alt="Nach implementierung des besten Kreuzungsalgorithmus" width="200"/>
+
+<img src="result_images/genetic_algorithm/test_1_before_implementing_best_crossover.png" alt="Vor Implementierung des besten Kreuzungsalgorithmus" width="700"/>
+<img src="result_images/genetic_algorithm/test_2_after_implementing_best_crossover.png" alt="Nach implementierung des besten Kreuzungsalgorithmus" width="700"/>
 
 Zur Evaluierung des **Gradientenabstieg-basierten Modells** finden Sie die Ergebnisse in `result_images/gradient_descent/`, die visuelle Darstellungen wie enthalten:
-<img src="result_images/gradient_descent/cross_entropy_per_epochs_graph.png" alt="Kreuzentropie pro Epoche" width="200"/>
-<img src="result_images/gradient_descent/gradient_descent_test_dataset_predictions.png" alt="Vorhersagen des Testdatensatzes" width="200"/>
+
+<img src="result_images/gradient_descent/cross_entropy_per_epochs_graph.png" alt="Kreuzentropie pro Epoche" width="700"/>
+<img src="result_images/gradient_descent/gradient_descent_test_dataset_predictions.png" alt="Vorhersagen des Testdatensatzes" width="700"/>
 
 ### Visuelle Ergebnisse
 
 Hier sind einige Bilder, die Sie überprüfen können, um die Genauigkeit beider Ansätze zu vergleichen:
-<img src="result_images/accuracy_comparison_gradient_descent_and_genetic_algorithm.png" alt="Genauigkeitsvergleich]" width="200"/>
+
+<img src="result_images/accuracy_comparison_gradient_descent_and_genetic_algorithm.png" alt="Genauigkeitsvergleich]" width="700"/>
 
 ---
 
