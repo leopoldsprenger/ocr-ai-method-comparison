@@ -61,15 +61,15 @@ Nach dem Training möchten Sie möglicherweise die Leistung der Modelle bewerten
 Zur Evaluierung des **genetisch Algorithmus-basierten Modells**, überprüfen Sie die Ergebnisse in `result_images/genetic_algorithm/`, insbesondere die Dateien:
 
 <p align="center">
-  <img src="result_images/genetic_algorithm/test_1_before_implementing_best_crossover.png" alt="Vor Implementierung des besten Kreuzungsalgorithmus" width="450"/>
-  <img src="result_images/genetic_algorithm/test_2_after_implementing_best_crossover.png" alt="Nach implementierung des besten Kreuzungsalgorithmus" width="450"/>
+  <img src="result_images/genetic_algorithm/test_1_before_implementing_best_crossover.png" alt="Vor Implementierung des besten Kreuzungsalgorithmus" width="700"/>
+  <img src="result_images/genetic_algorithm/test_2_after_implementing_best_crossover.png" alt="Nach implementierung des besten Kreuzungsalgorithmus" width="700"/>
 </p>
 
 Zur Evaluierung des **Gradientenabstieg-basierten Modells** finden Sie die Ergebnisse in `result_images/gradient_descent/`, die visuelle Darstellungen wie enthalten:
 
 <p align="center">
-  <img src="result_images/gradient_descent/cross_entropy_per_epochs_graph.png" alt="Kreuzentropie pro Epoche" width="450"/>
-  <img src="result_images/gradient_descent/gradient_descent_test_dataset_predictions.png" alt="Vorhersagen des Testdatensatzes" width="450"/>
+  <img src="result_images/gradient_descent/cross_entropy_per_epochs_graph.png" alt="Kreuzentropie pro Epoche" width="700"/>
+  <img src="result_images/gradient_descent/gradient_descent_test_dataset_predictions.png" alt="Vorhersagen des Testdatensatzes" width="700"/>
 </p>
 
 ### Visuelle Ergebnisse
@@ -77,7 +77,7 @@ Zur Evaluierung des **Gradientenabstieg-basierten Modells** finden Sie die Ergeb
 Hier sind einige Bilder, die Sie überprüfen können, um die Genauigkeit beider Ansätze zu vergleichen:
 
 <p align="center">
-  <img src="result_images/accuracy_comparison_gradient_descent_and_genetic_algorithm.png" alt="Genauigkeitsvergleich]" width="450"/>
+  <img src="result_images/accuracy_comparison_gradient_descent_and_genetic_algorithm.png" alt="Genauigkeitsvergleich]" width="700"/>
 </p>
 
 ---
