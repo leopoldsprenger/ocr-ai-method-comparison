@@ -58,18 +58,18 @@ Sie können entweder KI-Modell mit den folgenden Skripten trainieren:
 
 Nach dem Training möchten Sie möglicherweise die Leistung der Modelle bewerten. Hier sind die Schritte:
 
-- Zur Evaluierung des **genetisch Algorithmus-basierten Modells**, überprüfen Sie die Ergebnisse in `result_images/genetic_algorithm/`, insbesondere die Dateien:
-  - ![Vor Implementierung des besten Kreuzungsalgorithmus](result_images/genetic_algorithm/test_1_before_implementing_best_crossover.png)
-  - ![Nach implementierung des besten Kreuzungsalgorithmus](result_images/genetic_algorithm/test_2_after_implementing_best_crossover.png)
+Zur Evaluierung des **genetisch Algorithmus-basierten Modells**, überprüfen Sie die Ergebnisse in `result_images/genetic_algorithm/`, insbesondere die Dateien:
+![Vor Implementierung des besten Kreuzungsalgorithmus](result_images/genetic_algorithm/test_1_before_implementing_best_crossover.png|450)
+![Nach implementierung des besten Kreuzungsalgorithmus](result_images/genetic_algorithm/test_2_after_implementing_best_crossover.png|450)
 
-- Zur Evaluierung des **Gradientenabstieg-basierten Modells** finden Sie die Ergebnisse in `result_images/gradient_descent/`, die visuelle Darstellungen wie enthalten:
-  - ![Kreuzentropie pro Epoche](result_images/gradient_descent/cross_entropy_per_epochs_graph.png)
-  - ![Vorhersagen des Testdatensatzes](result_images/gradient_descent/gradient_descent_test_dataset_predictions.png)
+Zur Evaluierung des **Gradientenabstieg-basierten Modells** finden Sie die Ergebnisse in `result_images/gradient_descent/`, die visuelle Darstellungen wie enthalten:
+![Kreuzentropie pro Epoche](result_images/gradient_descent/cross_entropy_per_epochs_graph.png|450)
+![Vorhersagen des Testdatensatzes](result_images/gradient_descent/gradient_descent_test_dataset_predictions.png|450)
 
 ### Visuelle Ergebnisse
 
 Hier sind einige Bilder, die Sie überprüfen können, um die Genauigkeit beider Ansätze zu vergleichen:
-![Genauigkeitsvergleich](result_images/accuracy_comparison_gradient_descent_and_genetic_algorithm.png)
+![Genauigkeitsvergleich](result_images/accuracy_comparison_gradient_descent_and_genetic_algorithm.png|450)
 
 ---
 
