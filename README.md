@@ -111,9 +111,3 @@ class NeuralNetwork(nn.Module):
 - **Ausgabeschicht**: Gibt Wahrscheinlichkeiten für jede der zehn Ziffernklassen (0-9) aus.
 
 Diese Klasse definiert, wie Daten durch das Netzwerk fließen, während des Trainings Gewichte aktualisiert werden und während der Bewertung Vorhersagen getroffen werden.
-
----
-
-## Lizenz
-
-Dieses Projekt ist unter der [MIT-Lizenz](https://opensource.org/licenses/MIT) lizenziert, die die Wiederverwendung des Codes mit angemessener Attribution erlaubt.
